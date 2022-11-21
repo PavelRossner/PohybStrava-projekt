@@ -1,0 +1,91 @@
+﻿@model IEnumerable<PohybStrava.Models.User>
+
+@{
+    ViewData["Title"] = "Informace o sportovci";
+}
+
+<body>
+    <div id="sirkatextu">
+
+        <h3>Informace o sportovci</h3>
+        <p>
+            <a class="pridat-tlacitko" asp-action="Create">Přidat záznam</a>
+        </p>
+        <p>
+            Zadejte informace o uživateli kliknutím na tlačítko "Přidat uživatele".
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DatumUser)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Jmeno)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Prijmeni)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Vek)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Vaha)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Vyska)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BMI)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BMR)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td id="tabulka">
+                            @item.Den.@item.Mesic.@item.Rok
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Jmeno)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Prijmeni)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Vek)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Vaha)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Vyska)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BMI)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BMR)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" class="pridat-tlacitko" asp-route-id="@item.UserId">Upravit</a> |
+                            <a asp-action="Details" class="pridat-tlacitko" asp-route-id="@item.UserId">Podrobnosti</a> |
+                            <a asp-action="Delete" class="pridat-tlacitko" asp-route-id="@item.UserId">Smazat</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+        <br />
+        <a asp-action="PrumerUser" class="pridat-tlacitko">Měsíční průměry</a> |
+        <a class="pridat-tlacitko" asp-controller="PrijemVydejEnergie" asp-action="Index" target="_blank">Energetická bilance</a>
+
+    </div>
+</body>

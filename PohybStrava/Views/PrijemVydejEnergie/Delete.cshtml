@@ -1,0 +1,60 @@
+﻿@model PohybStrava.Models.PrijemVydejEnergie
+
+@{
+    ViewData["Title"] = "Smazat záznam";
+}
+
+<body>
+    <div id="sirkatextu">
+        <h3>Opravdu chcete záznam smazat?</h3>
+        <div>
+            <h4>PrijemVydejEnergie</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DatumDiet)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DatumDiet)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.SoucetEnergieDiet)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.SoucetEnergieDiet)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.SoucetEnergieActivities)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.SoucetEnergieActivities)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.BMR)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.BMR)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.EnergetickaBilance)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.EnergetickaBilance)
+                </dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="PrijemVydejId" />
+                <input type="submit" value="Smazat" class="pridat-tlacitko" /> |
+                <a asp-action="Index" class="pridat-tlacitko">Zpět</a>
+            </form>
+        </div>
+    </div>
+</body>
+

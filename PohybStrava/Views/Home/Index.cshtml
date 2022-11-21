@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Vítejte v aplikaci Pohyb a vyvážená strava";
+}
+
+
+<body>
+    <div id="sirkatextuhlavnistrana" class="domu-article">
+
+        <img class="obrazek" align="right" src="~/images/hodinky-edit.jpg" />
+
+        <h2>Vítejte v aplikaci Pohyb a vyvážená strava</h2>
+
+        <script type="text/javascript">
+            document.write("<br />");
+            let d = new Date(); // vytvoří proměnnou, ve které je aktuální datum
+            var dnesnidatum = "Dnes je: " + d.getDate() + ". " + (d.getMonth() + 1) + ". " + d.getFullYear();
+            document.write('<span style="color:#00386B; font-size: 20px; text-shadow: 3px 3px 7px #666666;">' + dnesnidatum + '</span>');
+            document.write("<br />");
+        </script>
+
+        <h3>Proč tato webová aplikace vznikla?</h3>
+        <p>
+            Tyto stránky jsou primárně určeny nadšencům, kteří si neumí představit svůj volný čas bez pohybové aktivity, konkrétně běhu. A tak běhají,
+            měří, zapisují a kontrolují, kolik toho který den/týden/měsíc/rok naběhali &#128512;. Pro takové sportovce představuje webová aplikace
+            možnost shromáždit jejich výkony na jednom místě a provést základní statistické výpočty a porovnání. Web je navíc doplněn o možnost sledování
+            jídelníčku a zaznamenávání příjmu energie z jednotlivých druhů potravin. Sportovec tedy získá i možnost srovnat množství energie vydané
+            sportovní aktivitou a energie přijaté ve stravě, a na základě toho vypočítat celkovou energetickou bilanci pro každý den &#128512;. Stránky může 
+            samozřejmě využívat každý, kdo má o zaznamenávání jednoho (nebo obou) parametrů zájem. Jediným předpokladem je získání informací o energetické
+            hodnotě potravin, které uživatel konzumuje (možno např. <a href="https://www.kaloricketabulky.cz/tabulka-potravin" target="_blank">zde </a>),
+            a zaznamenání jejich množství. Pro pohybovou aktivitu je pak třeba znát délku trasy, její převýšení a vydanou energie (údaje zaznamenávají např.
+            sportovní hodinky, nebo jiné sporttestery).
+        </p>
+
+        <h3>Jak aplikaci obsluhovat?</h3>
+
+        @if ((User.Identity.IsAuthenticated) == false)
+        {
+            <p>
+                Před prvním použitím aplikace je potřeba se <a href="https://localhost:7254/Account/Register"> zaregistrovat</a>; bez tohoto kroku není aplikace
+                funkční. Zadání informací o uživateli, jeho stravovacích návicích a sportovních výkonech je možné po <a href="https://localhost:7254/Account/Login"> přihlášení </a>.
+                Aplikaci může využívat nezávisle na sobě více uživatelů, přičemž data, která vloží jeden uživatel, nejsou pro dalšího uživatele přístupná. Uživatel nemusí nutně být
+                totožný se sportovcem, jehož data se v aplikaci objevují. V dalším textu tedy rozlišujeme uživatele a sportovce jako odlišné osoby. Administrátor webu má rozšířené 
+                pravomoce umožňující v položce Administrace účtu vygenerovat seznam všech uživatelů v databázi,mazat je, případně registrovat nové. Může též prohlížet zaregistrované 
+                sportovce, mazat je a upravovat údaje o nich. Pro získání dalších instrukcí se tedy registrujte/přihlašte.
+            </p>
+        }
+
+        @if ((User.Identity.IsAuthenticated) == true)
+        {
+            <p>
+                Následují podrobné instrukce, jak webovou aplikaci používat, jak zadávat data a interpretovat výsledky.<br>
+                Aplikace má čtyři základní funkční bloky: <strong>Sportovec</strong>, <strong>Strava</strong>, <strong>Denní aktivity</strong> a <strong>Energetická bilance</strong>.
+                Zatímco do nabídek <strong>Sportovec</strong>, <strong>Strava</strong> a <strong>Denní aktivity</strong> je možné po rozkliknutí přidávat informace, editovat je a mazat,
+                sekce <strong>Energetická bilance</strong> obsahuje přehled hodnot z ostatních bloků, které zde není možné editovat. Jde o hlavní výstup aplikace, který dá sportovci informaci
+                o tom, jak je jeho strava energeticky vyvážená vzhledem k fyzické aktivitě.
+            </p>
+            <p>
+                <h5>Nabídka Sportovec</h5>
+                <strong>Informace o sportovci</strong> zadáváme do <a href="~/images/uzivatel.JPG" target="_blank"> formuláře</a>, v němž jsou povinná a volitelná pole. Pro
+                správnou funkci aplikace (např. výpočet BMI a hodnoty bazálního metabolismu) je třeba uvést <strong>e-mail zadaný při registraci, pohlaví, váhu a výšku</strong>. Po odeslání
+                formuláře je možné údaje upravovat, případně úplně smazat. Body mass index (index tělesné hmotnosti, BMI) zohledňuje výšku a hmotnost osoby; bližší informace jsou k dispozici
+                např. <a href="https://cs.wikipedia.org/wiki/Index_t%C4%9Blesn%C3%A9_hmotnosti" target="_blank">zde </a>. Bazální metabolismus je energie nutná pro zachování základních životních
+                funkcí. Jeho výpočet vychází z věku, hmotnosti, výšky a pohlaví; detaily uvedeny <a href="https://www.wikiskripta.eu/w/Baz%C3%A1ln%C3%AD_metabolismus" target="_blank">na této stránce</a>.
+                Další informace o energetickém výdeji a metabolismu lze nalézt např. <a href="https://www.fsps.muni.cz/emuni/data/reader/book-3/07.html" target="_blank">v tomto textu</a>.
+                Kromě přehledu zadaných hodnot v jednotlivých dnech umožňuje aplikace vygenerovat měsíční průměry hmotnosti a BMI (nabídka Sportovec /Měsíční průměry).
+
+            </p>
+            <p>
+                <h5>Nabídka Strava</h5>
+                <strong>Údaje o stravě</strong> zadáváme do obdobného <a href="~/images/strava.JPG" target="_blank"> formuláře</a>, zde je potřeba vyplnit <strong>všechna pole</strong>. Do formuláře
+                vkládáme informace o potravinách, které v jednotlivých dnech zkonzumujeme. Informace o kalorických hodnotách potravin lze získat například na <a href="https://www.kaloricketabulky.cz/tabulka-potravin" target="_blank"> této webové stránce</a>.
+                Aplikace ze zadaných údajů vypočítá celkové množství přijaté energie, pro které generuje denní součty (nabídka Strava/Denní součty) a měsíční přehledy (nabídka Strava/Měsíční přehledy).
+            </p>
+
+            <p>
+                <h5>Nabídka Sportovní aktivity</h5>
+                Pro přehled <strong>sportovních aktivit</strong> využíváme <a href="~/images/aktivity.JPG" target="_blank"> formulář</a> s detailními údaji o uražených trasách. Povinným
+                údajem je e-mail uživatele, avšak vzhledem k tomu, že aplikace předpokládá výpočet součtů/průměrů jenotlivých parametrů, <strong>je vhodné vyplnit všechny položky</strong>. Podobně jako v případě informací o stravě
+                vytváří aplikace denní a měsíční přehledy uražených kilometrů, nastoupaných výškových metrů a vydané energie (nabídky Sportovní aktivity/Denní součty a Sportovní aktivity/Měsíční přehledy).
+            </p>
+
+            <p>
+                <h5>Nabídka Energetická bilance</h5>
+                Sekce <strong>Energetická bilance</strong> představuje hlavní výstup celé webové aplikace. Pro jednotlivé dny shrnuje množství energie přijaté ve stravě, množství energie vydané sportovními aktivitami a po doplnění o údaje bazálního
+                metabolismu vypočítá výslednou energetickou bilanci (tj. zda množství přijaté energie je větší, nebo menší než množství energie vydané.) Pro lepší orientaci jsou výsledky barevně odlišené: záporné hodnoty (tj. energetická ztráta)
+                jsou vyznačeny zeleně, zatímco kladné hodnoty (energetický zisk) jsou červené. Dlouhodobé získávání červeně označených dat může vést k nárůstu tělesné hmotnosti, zelené výsledky naopak mohou přispět k hubnutí.
+                Podle těchto hodnot pak může sportovec (uživatel aplikace) upravit svůj denní režim tak, aby v delším časovém horizontu udržoval optimální tělesnou hmotnost doplněnou o dostatečnou tělesnou aktivitu. 
+                Ze stránky je též možné kliknutím na příslušná tlačítka přejít přímo do sekcí shrnujích data o sportovci, stravě a aktivitách.
+
+            </p>
+        }
+
+    </div>
+</body>

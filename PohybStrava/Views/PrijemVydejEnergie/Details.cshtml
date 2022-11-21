@@ -1,0 +1,56 @@
+﻿@model PohybStrava.Models.PrijemVydejEnergie
+
+@{
+    ViewData["Title"] = "Podrobnosti";
+}
+
+<body>
+    <div id="sirkatextu">
+        <div>
+            <h3>Podrobnosti</h3>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DatumDiet)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DatumDiet)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.SoucetEnergieDiet)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.SoucetEnergieDiet)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.SoucetEnergieActivities)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.SoucetEnergieActivities)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.BMR)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.BMR)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.EnergetickaBilance)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.EnergetickaBilance)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model?.PrijemVydejId" class="pridat-tlacitko">Upravit</a> |
+            <a asp-action="Index" class="pridat-tlacitko">Zpět</a>
+        </div>
+    </div>
+</body>
