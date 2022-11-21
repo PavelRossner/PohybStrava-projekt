@@ -1,0 +1,68 @@
+﻿@model PohybStrava.Models.User
+
+@{
+    ViewData["Title"] = "Úprava údajů";
+}
+
+<body>
+    <div id="sirkatextuhlavnistrana">
+        <h3>Úprava údajů</h3>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="UserId" />
+                    <div class="form-group">
+                        <label asp-for="DatumUser" class="control-label"></label>
+                        <input asp-for="DatumUser" class="form-control" />
+                        <span asp-validation-for="DatumUser" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Jmeno" class="control-label"></label>
+                        <input asp-for="Jmeno" class="form-control" />
+                        <span asp-validation-for="Jmeno" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Prijmeni" class="control-label"></label>
+                        <input asp-for="Prijmeni" class="form-control" />
+                        <span asp-validation-for="Prijmeni" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Pohlavi" class="control-label"></label>
+                        <input asp-for="Pohlavi" class="form-control" />
+                        <span asp-validation-for="Pohlavi" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Vek" class="control-label"></label>
+                        <input asp-for="Vek" class="form-control" />
+                        <span asp-validation-for="Vek" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Vaha" class="control-label"></label>
+                        <input asp-for="Vaha" class="form-control" />
+                        <span asp-validation-for="Vaha" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Vyska" class="control-label"></label>
+                        <input asp-for="Vyska" class="form-control" />
+                        <span asp-validation-for="Vyska" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="pridat-tlacitko" value="Uložit" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <p></p>
+        <div>
+            <a asp-action="Index" class="pridat-tlacitko">Zpět</a>|
+            <a asp-controller="Account" asp-action="Administration" class="pridat-tlacitko">Zpět na administraci účtů</a>
+        </div>
+    </div>
+</body>

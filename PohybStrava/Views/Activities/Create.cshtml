@@ -1,0 +1,79 @@
+﻿@model PohybStrava.Models.Activities
+
+@{
+    ViewData["Title"] = "Přidat aktivitu";
+}
+
+<body>
+    <div id="sirkatextu">
+
+@if (this.Context.User.IsInRole("Admin") == false)
+{
+    <h3>Přidejte aktivitu</h3>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DatumActivities" class="control-label"></label>
+                    <input asp-for="DatumActivities" class="form-control" />
+                    <span asp-validation-for="DatumActivities" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Trasa" class="control-label"></label>
+                    <input asp-for="Trasa" class="form-control" />
+                    <span asp-validation-for="Trasa" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Vzdalenost" class="control-label"></label>
+                    <input asp-for="Vzdalenost" class="form-control" />
+                    <span asp-validation-for="Vzdalenost" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Prevyseni" class="control-label"></label>
+                    <input asp-for="Prevyseni" class="form-control" />
+                    <span asp-validation-for="Prevyseni" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cas" class="control-label"></label>
+                    <input asp-for="Cas" class="form-control" />
+                    <span asp-validation-for="Cas" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Tempo" class="control-label"></label>
+                    <input asp-for="Tempo" class="form-control" />
+                    <span asp-validation-for="Tempo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Energie" class="control-label"></label>
+                    <input asp-for="Energie" class="form-control" />
+                    <span asp-validation-for="Energie" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Přidat" class="pridat-tlacitko"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <p></p>
+    <div>
+        <a asp-action="Index" class="pridat-tlacitko" >Zpět</a>
+    </div>
+}
+
+@if (this.Context.User.IsInRole("Admin"))
+{
+    <p>Admin nemůže data upravovat. Přihlaste se jako uživatel.</p>
+    <p></p>
+    <div>
+        <a asp-action="Index" class="pridat-tlacitko">Zpět</a>
+    </div>
+}
+    </div>
+</body>

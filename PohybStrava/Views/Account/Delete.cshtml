@@ -1,0 +1,40 @@
+﻿@model PohybStrava.Models.User
+
+@{
+    ViewData["Title"] = "Smazat uživatele z databáze";
+}
+}
+
+<body>
+    <div id="sirkatextu">
+        <h3>Opravdu chcete uživatele smazat?</h3>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Jmeno)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Jmeno)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Prijmeni)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Prijmeni)
+            </dd>
+
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="UserId" />
+            <input type="submit" value="Smazat" class="btn btn-danger" /> |
+            <a asp-action="Overview" class="pridat-tlacitko">Zpět</a>
+        </form>
+    </div>
+</body>

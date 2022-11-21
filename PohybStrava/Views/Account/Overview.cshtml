@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PohybStrava.Models.User>
+
+@{
+    ViewData["Title"] = "Seznam uživatelů";
+}
+
+<body>
+    <div id="sirkatextu">
+
+        <h3>Seznam uživatelů</h3>
+        <p>
+            Zadejte informace o sportovci a klikněte na tlačítko "Přidat uživatele".
+        </p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Jmeno)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Prijmeni)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Jmeno)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Prijmeni)
+                        </td>
+
+                        <td>
+                            <a asp-controller="Users" asp-action="Edit" class="pridat-tlacitko" asp-route-id="@item.UserId">Upravit</a> |
+                            <a asp-controller="Users" asp-action="Details" class="pridat-tlacitko" asp-route-id="@item.UserId">Podrobnosti</a> |
+                            <a asp-controller="Users" asp-action="Delete" class="pridat-tlacitko" asp-route-id="@item.UserId">Smazat</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p></p>
+        <div>
+            <a asp-controller="Users" asp-action="Create" class="pridat-tlacitko">Přidat uživatele</a> |
+            <a asp-action="Administration" class="pridat-tlacitko">Zpět</a>
+        </div>
+    </div>
+</body>

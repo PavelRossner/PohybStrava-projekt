@@ -1,0 +1,76 @@
+﻿@model PohybStrava.Models.User
+
+@{
+    ViewData["Title"] = "Smazat uživatele";
+}
+
+<body>
+    <div id="sirkatextu">
+        <h3>Opravdu chcete sportovce smazat?</h3>
+        <div>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DatumUser)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DatumUser)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Jmeno)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Jmeno)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Prijmeni)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Prijmeni)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Pohlavi)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Pohlavi)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Vek)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Vek)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Vaha)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Vaha)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Vyska)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Vyska)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.BMI)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.BMI)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.BMR)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.BMR)
+                </dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="UserId" />
+                <input type="submit" value="Smazat" class="pridat-tlacitko" /> |
+                <a asp-action="Index" class="pridat-tlacitko">Zpět</a>
+            </form>
+        </div>
+    </div>
+</body>

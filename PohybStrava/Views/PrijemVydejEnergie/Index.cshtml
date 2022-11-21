@@ -1,0 +1,68 @@
+﻿@model IEnumerable<PohybStrava.Models.PrijemVydejEnergie>
+
+@{
+    ViewData["Title"] = "Energetická bilance";
+}
+
+<body>
+    <div id="sirkatextu">
+        <h3 id="tabulkynadpis">Energetická bilance</h3>
+
+        <table class="table" id="centrovanitabulky">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DatumDiet)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SoucetEnergieDiet)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SoucetEnergieActivities)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BMR)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EnergetickaBilance)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Den.@item.Mesic.@item.Rok
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SoucetEnergieDiet)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SoucetEnergieActivities)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BMR)
+                        </td>
+                        @if (item.EnergetickaBilance > 0)
+                        {
+                            <td class="bold" style="color:red">@Html.DisplayFor(modelItem => item.EnergetickaBilance)</td>
+                        }
+                        else
+                        {
+                            <td class="bold" style="color:green">@Html.DisplayFor(modelItem => item.EnergetickaBilance)</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br /><br />
+        <div class="d-flex justify-content-left align-items-center container h-100">
+            <a class="pridat-tlacitko" asp-controller="Users" asp-action="Index">Informace o sportovci</a> |
+            <a class="pridat-tlacitko" asp-controller="Diets" asp-action="Index">Přehled stravy</a> |
+            <a class="pridat-tlacitko" asp-controller="Activities" asp-action="Index">Přehled aktivit</a>
+        </div>
+
+    </div>
+</body>

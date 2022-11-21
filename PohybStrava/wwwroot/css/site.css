@@ -1,0 +1,199 @@
+
+/*Font a velikost ramecku titulni stranky, obrazek v pozadi*/
+body {
+    background-image: url('../images/hodinky-edit-otoceny.jpg');
+    background-repeat: no-repeat;
+    background-size: 1000px;
+    background-position: center;
+    font-family: Calibri !important;
+    font-size: 14px !important;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align: justify;
+}
+
+/*Format obrazku na hlavni strance*/
+.obrazek {
+    width: 200px;
+    padding: 20px;
+}
+
+/*Format nadpisu v tele stranky*/
+h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+    color: #ffffff;
+    text-shadow: 3px 3px 7px #666666;
+    padding: 10px 0;
+    color: #00386B;
+    width: fit-content;
+}
+
+/*Souhrnne tabulky - nadpisy*/
+#tabulkynadpis {
+    margin: 0 auto;
+}
+
+#centrovanitabulky {
+    margin: 0 auto;
+}
+
+
+/*Vyska tela stranky*/
+article header {
+    height: 100px;
+    background: none;
+}
+
+/*Sirka tela stranky*/
+#sirkatextu {
+    margin: 0 auto;
+    max-width:fit-content;
+}
+
+/*Sirka tela hlavni stranky*/
+#sirkatextuhlavnistrana {
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+/*Plasticky ramecek u titulni stranky*/
+.domu-article {
+    grid-template-columns: auto auto;
+    grid-template-rows: 100px max-content;
+    border: 3px none green;
+    box-shadow: 2px 2px 7px #1c2228;
+    padding: 20px 20px;
+}
+
+/*Text se neprekryva s hlavickou*/
+article {
+    padding: 80px 50px;
+    flex: 1;
+}
+
+/*Stylovani navigacni listy - neovlivni barvu textu*/
+body > header {
+    height: 70px;
+    position: fixed;
+    display: flex;
+    justify-content: space-evenly;
+    background-image: linear-gradient(to right, #e8d397, #faf8f5);
+    width: 100%;
+}
+
+/*Text v navigacni liste, ale neovlivni barvu*/
+nav ul {
+    align-items: center;
+    padding: 8px 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: Calibri;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#barva {
+    color: darkcyan;
+}
+
+/*Podtrzeni pri najeti mysi v navigacni liste*/
+nav ul a:hover, .aktivni a {
+    border-bottom: 2px solid #EF6534;
+}
+
+/*Pozice napisu v navigacni liste*/
+nav ul li {
+    padding: 0 7px;
+    font-size: 1em;
+    line-height: 4.3em;
+}
+
+/*Styl textu v roletce*/
+.dropdown-item {
+    color: #0c05c7;
+    padding: 0 25px;
+    margin: 0 5px;
+    font-size: 0.75em;
+    line-height: 2em;
+}
+
+.kontakt-tlacitko {
+    background: #EF6534;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+    .kontakt-tlacitko:hover {
+        color: white;
+        filter: brightness(115%) contrast(85%);
+        border: 0;
+    }
+
+.pridat-tlacitko {
+    background: #eac7c7;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+    .pridat-tlacitko:hover {
+        color: white;
+        filter: brightness(115%) contrast(85%);
+        border: 0;
+    }
+
+
+.pozice-tlacitko {
+    margin: 25px;
+}
+
+.mezera {
+    margin-bottom: 20px
+}
+
+/*Stylovani tabulek*/
+.table {
+    width: max-content;
+    text-align: center;
+}
+
+
+footer {
+    box-sizing: border-box;
+    text-align: center;
+    height: 100px;
+}
+
+    footer a {
+        color: white;
+        text-decoration: none;
+    }
+
+
+/*Vycentrovani textu v tabulkach*/
+td, th {
+        text-align: center;
+    }
+
+
+/*Tucne hodnoty energeticke bilance*/
+.bold {
+    font-weight: bold;
+}
+
+/*Pozadi responzivni roletky - nastaveni velikosti obrazovky*/
+@media screen and (max-width:1000px) {
+    .navbar-collapse {
+        background-color: #f0e5c5;
+    }
+}
+
+/*Barva respozivniho tlacitka*/
+.responzivnitlacitko {
+    border-color: darkcyan !important;
+    background-color: darkcyan !important;
+}
+

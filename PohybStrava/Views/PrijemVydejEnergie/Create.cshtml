@@ -1,0 +1,72 @@
+﻿@model PohybStrava.Models.PrijemVydejEnergie
+
+@{
+    ViewData["Title"] = "Přidat záznam";
+}
+
+<body>
+    <div id="sirkatextu">
+
+        <header><h3>Zadejte požadované informace</h3></header>
+
+        @if (this.Context.User.IsInRole("Admin") == false)
+
+        {
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group mezera">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mezera">
+                            <label asp-for="DatumDiet" class="control-label"></label>
+                            <input asp-for="DatumDiet" class="form-control" />
+                            <span asp-validation-for="DatumDiet" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mezera">
+                            <label asp-for="SoucetEnergieDiet" class="control-label"></label>
+                            <input asp-for="SoucetEnergieDiet" class="form-control" />
+                            <span asp-validation-for="SoucetEnergieDiet" class="text-danger"></span>
+                            <a class="pridat-tlacitko mezera-tlacitko" asp-controller="Diets" asp-action="SoucetDietsDen" target="_blank">Hodnotu naleznete zde</a>
+                        </div>
+                        <div class="form-group mezera">
+                            <label asp-for="SoucetEnergieActivities" class="control-label"></label>
+                            <input asp-for="SoucetEnergieActivities" class="form-control" />
+                            <span asp-validation-for="SoucetEnergieActivities" class="text-danger"></span>
+                            <a class="pridat-tlacitko mezera-tlacitko" asp-controller="Activities" asp-action="SoucetActivitiesDen" target="_blank">Hodnotu naleznete zde</a>
+                        </div>
+                        <div class="form-group mezera">
+                            <label asp-for="BMR" class="control-label"></label>
+                            <input asp-for="BMR" class="form-control" />
+                            <span asp-validation-for="BMR" class="text-danger"></span>
+                            <a class="pridat-tlacitko mezera-tlacitko" asp-controller="Users" asp-action="Index" target="_blank">Hodnotu naleznete zde</a>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="pridat-tlacitko" value="Spočítat energetickou bilanci" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <p></p>
+            <div>
+                <a asp-action="Index" class="pridat-tlacitko">Zpět na přehled energetické bilance</a>
+            </div>
+
+        }
+    </div>
+
+    @if (this.Context.User.IsInRole("Admin"))
+    {
+        <p>Admin nemůže data upravovat. Přihlaste se jako uživatel.</p>
+        <p></p>
+        <div>
+            <a asp-action="Index" class="pridat-tlacitko">Zpět na přehled energetické bilance</a>
+        </div>
+    }
+
+</body>
