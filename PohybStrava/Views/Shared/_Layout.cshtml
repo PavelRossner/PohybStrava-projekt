@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="~/lib/lightbox2/css/lightbox.min.css" asp-append-version="true" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
-    
+
 </head>
 <body>
     <header class="container-fluid">
@@ -27,60 +27,61 @@
 
                         <ul class="navbar-nav mr-auto d-flex align-items-center">
 
-                        <li class="nav-item navbar-underline"><a asp-controller="Home" asp-action="Index" id="barva">Úvod</a></li>
+                            <li class="nav-item navbar-underline"><a asp-controller="Home" asp-action="Index" id="barva">Úvod</a></li>
 
-                        <li class="nav-item dropdown">
-                            <div class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" id="barva">
-                                Sportovec
-                            </div>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-controller="Users" asp-action="Index" id="barva">Denní hodnoty</a>
-                                <a class="dropdown-item" asp-controller="Users" asp-action="PrumerUser" id="barva">Měsíční průměry</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <div class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" id="barva">
-                                Strava
-                            </div>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-controller="Diets" asp-action="Index" id="barva">Denní hodnoty</a>
-                                <a class="dropdown-item" asp-controller="Diets" asp-action="SoucetDietsDen" id="barva">Denní součty</a>
-                                <a class="dropdown-item" asp-controller="Diets" asp-action="PrehledMesic" id="barva">Měsíční přehledy</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <div class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" id="barva">
-                                Sportovní aktivity
-                            </div>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-controller="Activities" asp-action="Index" id="barva">Denní hodnoty</a>
-                                <a class="dropdown-item" asp-controller="Activities" asp-action="SoucetActivitiesDen" id="barva">Denní součty</a>
-                                <a class="dropdown-item" asp-controller="Activities" asp-action="PrehledMesic" id="barva">Měsíční přehledy</a>
-                            </div>
-                        </li>
+                            <li class="nav-item dropdown">
+                                <div class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" id="barva">
+                                    Sportovec
+                                </div>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-controller="Users" asp-action="Index" id="barva">Denní hodnoty</a>
+                                    <a class="dropdown-item" asp-controller="Users" asp-action="PrumerUser" id="barva">Měsíční průměry</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <div class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" id="barva">
+                                    Strava
+                                </div>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-controller="Diets" asp-action="Index" id="barva">Denní hodnoty</a>
+                                    <a class="dropdown-item" asp-controller="Diets" asp-action="SoucetDietsDen" id="barva">Denní součty</a>
+                                    <a class="dropdown-item" asp-controller="Diets" asp-action="PrehledMesic" id="barva">Měsíční přehledy</a>
+                                    <a class="dropdown-item" asp-controller="PotravinyDatabase" asp-action="Index" id="barva">Databáze potravin</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <div class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" id="barva">
+                                    Sportovní aktivity
+                                </div>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-controller="Activities" asp-action="Index" id="barva">Denní hodnoty</a>
+                                    <a class="dropdown-item" asp-controller="Activities" asp-action="SoucetActivitiesDen" id="barva">Denní součty</a>
+                                    <a class="dropdown-item" asp-controller="Activities" asp-action="PrehledMesic" id="barva">Měsíční přehledy</a>
+                                </div>
+                            </li>
                             <li class="nav-item navbar-underline"><a asp-controller="PrijemVydejEnergie" asp-action="Index" id="barva">Energetická bilance</a></li>
-                        <li class="nav-item dropdown">
-                            <div class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" id="barva">
-                                Přihlášení/registrace
-                            </div>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-controller="Account" asp-action="Login" id="barva">Přihlášení</a>
-                                <a class="dropdown-item" asp-controller="Account" asp-action="Logout" id="barva">Odhlášení</a>
-                                <a class="dropdown-item" asp-controller="Account" asp-action="Register" id="barva">Registrovat</a>
-                                <a class="dropdown-item" asp-controller="Account" asp-action="Administration" id="barva">Administrace</a>
-                            </div>
-                        </li>
-                        <li class="nav-item" id="barva">
-                            <a href="/Account/Administration">
-                                @if (User.Identity.IsAuthenticated)
-                                {
-                                    <a>Přihlášen jako: </a>
-                                    <span> @User.Identity.Name </span>
-                                }
-                            </a>
-                        </li>
+                            <li class="nav-item dropdown">
+                                <div class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" id="barva">
+                                    Přihlášení/registrace
+                                </div>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Login" id="barva">Přihlášení</a>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Logout" id="barva">Odhlášení</a>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Register" id="barva">Registrovat</a>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Administration" id="barva">Administrace</a>
+                                </div>
+                            </li>
+                            <li class="nav-item" id="barva">
+                                <a href="/Account/Administration">
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <a>Přihlášen jako: </a>
+                                        <span> @User.Identity.Name </span>
+                                    }
+                                </a>
+                            </li>
                             <li class="nav-item px-2 navbar-underline"><a asp-controller="Home" asp-action="About" id="barva">O aplikaci</a></li>
-                    </ul>
+                        </ul>
                     </div>
                 </nav>
             </div>

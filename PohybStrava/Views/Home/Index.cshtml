@@ -40,18 +40,19 @@
                 funkční. Zadání informací o uživateli, jeho stravovacích návicích a sportovních výkonech je možné po <a href="https://localhost:7254/Account/Login"> přihlášení </a>.
                 Aplikaci může využívat nezávisle na sobě více uživatelů, přičemž data, která vloží jeden uživatel, nejsou pro dalšího uživatele přístupná. Uživatel nemusí nutně být
                 totožný se sportovcem, jehož data se v aplikaci objevují. V dalším textu tedy rozlišujeme uživatele a sportovce jako odlišné osoby. Administrátor webu má rozšířené 
-                pravomoce umožňující v položce Administrace účtu vygenerovat seznam všech uživatelů v databázi,mazat je, případně registrovat nové. Může též prohlížet zaregistrované 
-                sportovce, mazat je a upravovat údaje o nich. Pro získání dalších instrukcí se tedy registrujte/přihlašte.
+                pravomoce umožňující v položce Administrace účtu vygenerovat seznam všech uživatelů v databázi, mazat je, případně registrovat nové. Může též prohlížet zaregistrované 
+                sportovce, mazat je a upravovat údaje o nich. Některé funkce (např. úprava dat o pohybové aktivitě, nebo o stravě) naopak pro administrátora nejsou dostupné. Pro získání
+                dalších instrukcí se registrujte/přihlašte.
             </p>
         }
 
         @if ((User.Identity.IsAuthenticated) == true)
         {
             <p>
-                Následují podrobné instrukce, jak webovou aplikaci používat, jak zadávat data a interpretovat výsledky.<br>
+                Následují podrobné instrukce, jak webovou aplikaci používat, jak zadávat data a interpretovat výsledky.<br><br>
                 Aplikace má čtyři základní funkční bloky: <strong>Sportovec</strong>, <strong>Strava</strong>, <strong>Denní aktivity</strong> a <strong>Energetická bilance</strong>.
                 Zatímco do nabídek <strong>Sportovec</strong>, <strong>Strava</strong> a <strong>Denní aktivity</strong> je možné po rozkliknutí přidávat informace, editovat je a mazat,
-                sekce <strong>Energetická bilance</strong> obsahuje přehled hodnot z ostatních bloků, které zde není možné editovat. Jde o hlavní výstup aplikace, který dá sportovci informaci
+                sekce <strong>Energetická bilance</strong> obsahuje přehled hodnot z ostatních bloků, které není možné editovat. Jde o hlavní výstup aplikace, který dá sportovci informaci
                 o tom, jak je jeho strava energeticky vyvážená vzhledem k fyzické aktivitě.
             </p>
             <p>
@@ -60,7 +61,7 @@
                 správnou funkci aplikace (např. výpočet BMI a hodnoty bazálního metabolismu) je třeba uvést <strong>e-mail zadaný při registraci, pohlaví, váhu a výšku</strong>. Po odeslání
                 formuláře je možné údaje upravovat, případně úplně smazat. Body mass index (index tělesné hmotnosti, BMI) zohledňuje výšku a hmotnost osoby; bližší informace jsou k dispozici
                 např. <a href="https://cs.wikipedia.org/wiki/Index_t%C4%9Blesn%C3%A9_hmotnosti" target="_blank">zde </a>. Bazální metabolismus je energie nutná pro zachování základních životních
-                funkcí. Jeho výpočet vychází z věku, hmotnosti, výšky a pohlaví; detaily uvedeny <a href="https://www.wikiskripta.eu/w/Baz%C3%A1ln%C3%AD_metabolismus" target="_blank">na této stránce</a>.
+                funkcí. Jeho výpočet vychází z věku, hmotnosti, výšky a pohlaví; detaily jsou uvedeny <a href="https://www.wikiskripta.eu/w/Baz%C3%A1ln%C3%AD_metabolismus" target="_blank">na této stránce</a>.
                 Další informace o energetickém výdeji a metabolismu lze nalézt např. <a href="https://www.fsps.muni.cz/emuni/data/reader/book-3/07.html" target="_blank">v tomto textu</a>.
                 Kromě přehledu zadaných hodnot v jednotlivých dnech umožňuje aplikace vygenerovat měsíční průměry hmotnosti a BMI (nabídka Sportovec /Měsíční průměry).
 
@@ -70,6 +71,9 @@
                 <strong>Údaje o stravě</strong> zadáváme do obdobného <a href="~/images/strava.JPG" target="_blank"> formuláře</a>, zde je potřeba vyplnit <strong>všechna pole</strong>. Do formuláře
                 vkládáme informace o potravinách, které v jednotlivých dnech zkonzumujeme. Informace o kalorických hodnotách potravin lze získat například na <a href="https://www.kaloricketabulky.cz/tabulka-potravin" target="_blank"> této webové stránce</a>.
                 Aplikace ze zadaných údajů vypočítá celkové množství přijaté energie, pro které generuje denní součty (nabídka Strava/Denní součty) a měsíční přehledy (nabídka Strava/Měsíční přehledy).
+                Pro usnadnění zadávání informací o energetické hodnotě stravy je připravena tabulka, do níž je možné vkládat data o často konzumovaných potravinách (nabídka Strava/Databáze potravin).
+                Sportovec/uživatel aplikace může takto vygenerovat databázi oblíbených potravin, k níž se může snadno vracet odkazem na stránce Strava/Denní hodnoty, aniž by musel tyto údaje vyhledávat
+                v množství položek v internetových databázích.
             </p>
 
             <p>

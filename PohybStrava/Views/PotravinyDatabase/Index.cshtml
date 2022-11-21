@@ -1,0 +1,54 @@
+﻿@model IEnumerable<PohybStrava.Models.PotravinyDatabase>
+
+@{
+    ViewData["Title"] = "Přehled energetické hodnoty potravin";
+}
+
+<body>
+    <div id="sirkatextu">
+        <h3 id="tabulkynadpis">Přehled energetické hodnoty vybraných potravin</h3>
+        <p>
+            <a class="pridat-tlacitko pozice-tlacitko" asp-action="Create">Přidat položku</a>
+        </p>
+        <p>
+            Zadejte údaje o energetické hodnotě potravin kliknutím na tlačítko "Přidat položku". Údaje lze získat např. 
+            na <a href="https://www.kaloricketabulky.cz/tabulka-potravin" target="_blank">těchto webových stránkách. </a>
+        </p>
+        <table class="table" id="centrovanitabulky">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PotravinaDatabase)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Jednotka)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EnergieDatabase)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PotravinaDatabase)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Jednotka)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EnergieDatabase)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" class="pridat-tlacitko" asp-route-id="@item.PotravinaDatabaseId">Upravit</a> |
+                            <a asp-action="Delete" class="pridat-tlacitko" asp-route-id="@item.PotravinaDatabaseId">Smazat</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>

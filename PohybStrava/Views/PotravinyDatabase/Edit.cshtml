@@ -1,0 +1,43 @@
+﻿@model PohybStrava.Models.PotravinyDatabase
+
+@{
+    ViewData["Title"] = "Upravit záznam";
+}
+
+<body>
+    <div id="sirkatextuhlavnistrana">
+        <h3>Úprava údajů</h3>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="PotravinaDatabaseId" />
+                    <div class="form-group">
+                        <label asp-for="PotravinaDatabase" class="control-label"></label>
+                        <input asp-for="PotravinaDatabase" class="form-control" />
+                        <span asp-validation-for="PotravinaDatabase" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Jednotka" class="control-label"></label>
+                        <input asp-for="Jednotka" class="form-control" />
+                        <span asp-validation-for="Jednotka" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EnergieDatabase" class="control-label"></label>
+                        <input asp-for="EnergieDatabase" class="form-control" />
+                        <span asp-validation-for="EnergieDatabase" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="pridat-tlacitko" value="Uložit" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <p></p>
+        <div>
+            <a asp-action="Index" class="pridat-tlacitko">Zpět</a>
+        </div>
+    </div>
+</body>
+

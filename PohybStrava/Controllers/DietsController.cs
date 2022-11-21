@@ -205,7 +205,7 @@ namespace PohybStrava.Controllers
         public IActionResult Error()
         {
             if (User.Identity.Name.Contains("admin"))
-            { ViewBag.Message = "Admin nemůže data upravovat. Přihlaste se jako uživatel."; }
+            { ViewBag.Message = "Tato funkce není pro administrátora dostupná. Přihlaste se jako uživatel."; }
 
             else
             { ViewBag.Message = "Nejprve vyplňte informace o uživateli."; }

@@ -1,0 +1,41 @@
+﻿@model PohybStrava.Models.PotravinyDatabase
+
+@{
+    ViewData["Title"] = "Smazat záznam";
+}
+
+
+<body>
+    <div id="sirkatextuhlavnistrana">
+        <h3>Opravdu chcete záznam smazat?</h3>
+        <div>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PotravinaDatabase)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PotravinaDatabase)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Jednotka)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Jednotka)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.EnergieDatabase)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.EnergieDatabase)
+                </dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="PotravinaDatabaseId" />
+                <input type="submit" value="Smazat" class="pridat-tlacitko" /> |
+                <a asp-action="Index" class="pridat-tlacitko">Zpět</a>
+            </form>
+        </div>
+    </div>
+</body>

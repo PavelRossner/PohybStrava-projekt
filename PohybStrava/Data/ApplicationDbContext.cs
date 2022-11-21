@@ -22,5 +22,7 @@ namespace PohybStrava.Data
         {
             base.OnModelCreating(builder);
         }
+
+        public DbSet<PohybStrava.Models.PotravinyDatabase> PotravinyDatabase { get; set; }
     }
 }
